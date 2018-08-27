@@ -21,7 +21,6 @@ Packaging machines currently available:
 `vagrant up` might fail with error on `fpm` gem install. In this case, SSH into the failing box and run `sudo gem install fpm --no-rdoc --no-ri` manually.
 
 ## Pushing updated packages to the heap repo
-
 The `upload.sh` script should be used to push any updated packages to an S3 backed apt repository. To use it:
 - install [deb-s3](https://github.com/krobertson/deb-s3)
 - `export BUCKET=heap-apt-repo` (the S3 bucket holding the apt repo)
@@ -33,6 +32,12 @@ The `upload.sh` script should be used to push any updated packages to an S3 back
 
 Pushing packages to Heap apt repository does not guarantee that the latest version will be installed by salt, although it is possible to set this up.
 Please refer to [heap/infrastructure](https://github.com/heap/infrastructure) for details.
+
+## Viewing current packages
+You may want to list out the packages currently present in the Heap apt repository.
+- If you don't have temporary aws credentials, run `getTemporaryCredentials.coffee` as outlined above.
+- `export BUCKET=heap-apt-repo`
+- `deb-s3 list --bucket $BUCKET`
 
 # How do I add a new package?
 If your package doesn't fit nicely into one of the existing vagrant machines then you'll need to create a new instance. Check the `Vagrantfile` for the current usage. Each new machine must have the hostname set so that it can be targetted via Salt, you'll need to add this targetting to `salt/top.sls`.
