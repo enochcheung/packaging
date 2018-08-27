@@ -21,6 +21,7 @@ Packaging machines currently available:
 `vagrant up` might fail with error on `fpm` gem install. In this case, SSH into the failing box and run `sudo gem install fpm --no-rdoc --no-ri` manually.
 
 ## Pushing updated packages to the heap repo
+
 The `upload.sh` script should be used to push any updated packages to an S3 backed apt repository. To use it:
 - install [deb-s3](https://github.com/krobertson/deb-s3)
 - `export BUCKET=heap-apt-repo` (the S3 bucket holding the apt repo)
