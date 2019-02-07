@@ -7,6 +7,8 @@ base:
     - postgres
   'postgres10':
     - postgres10
+  'postgres11':
+    - postgres11
   'duo':
     - duo_openvpn
   'fluentd':
