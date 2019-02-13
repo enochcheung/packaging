@@ -16,7 +16,8 @@ A `tester` vagrant machine is available as a clean image for testing package ins
 
 Packaging machines currently available:
 * bosun
-* postgres (builds a range of postgres extensions)
+* postgres10 (builds a range of postgres 10 extensions)
+* postgres11 (builds a range of postgres 11 extensions)
 
 `vagrant up` might fail with error on `fpm` gem install. In this case, SSH into the failing box and run `sudo gem install fpm --no-rdoc --no-ri` manually.
 
